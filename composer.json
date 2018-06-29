@@ -1,0 +1,19 @@
+{
+    "name": "webhook-receiver-example",
+    "description": "Example on how to implement Webhook receiver",
+    "authors": [
+        {
+            "name": "Nikolay Borisov",
+            "email": "nikolay.r.borisov@gmail.com"
+        }
+    ],
+    "repositories": [{
+        "type": "vcs",
+        "name": "octis/webhookreceiver",
+        "url": "https://github.com/octis/webhook-receiver.git"
+    }],
+    "require": {
+        "kint-php/kint": "^2.2",
+        "octis/webhookreceiver": "dev-master"
+    }
+}
