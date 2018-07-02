@@ -2,5 +2,4 @@ vendor*
 logs*
 .well-known*
 logs*
-example_repos_settings.yml
 *.DS_Store
