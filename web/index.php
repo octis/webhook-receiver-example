@@ -5,7 +5,7 @@
  * Glue code for implementing the WebhookReceiver.
  */
 
-use Webham\Devops\WebhookReceiverWorker;
+use Octis\Webhookreceiver\WebhookReceiverWorker;
 
 // Autoloading.
 require __DIR__ . '/../vendor/autoload.php';
@@ -16,8 +16,7 @@ error_reporting(E_ALL);
 
 
 // Creating the WebhookReceiverWorker point.
-$webhookReceiver = new Octis\Webhookreceiver\WebhookReceiverWorker();
+$webhookReceiver = new WebhookReceiverWorker();
 $webhookReceiver->buildFromYml('../example_repos_settings.yml');
 //$webhookReceiver->setLogger($logger);
-$webhookReceiver->enableLogging();
 $webhookReceiver->createApiPoint();
