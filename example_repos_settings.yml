@@ -2,11 +2,12 @@ repos:
     git@gitlab.com:nikolay.r.borisov/webham.git:
         server_type: gitlab
         secret_token: ''
-        branch: refs/heads/master
-        callbacks:
+        actions:
           -
+            trigger_branch: refs/heads/master
             callback: \Octis\Webhookreceiver\Plugin\Action\GitPull::execute
             arguments: { branch: master, dir: '/etc/hosts' }
           -
+            trigger_branch: refs/heads/master
             callback: \Octis\Webhookreceiver\Plugin\GitPullPlugin::execute
             arguments: { branch: master, dir: '/etc/hosts' }
