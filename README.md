@@ -12,19 +12,21 @@ composer install
 2. Configure the *_repos_settings.yml file:
 ```
 repos:
-    git@gitlab.com:nikolay.r.borisov/webham.git:
-        server_type: gitlab
-        secret_token: fsdfsdf34234
-        branch: refs/heads/master
-        callbacks:
+    -
+      git_server_adapter: \Octis\Webhookreceiver\Plugin\GitServer\GitLabServerAdapter
+      git_url: git@gitlab.com:nikolay.r.borisov/webham.git
+      secret_token: ''
+      actions:
           -
-            callback: \Webham\Devops\WebhookReceiverWorker\Plugin\PullPlugin::execute
+            trigger_branch: refs/heads/master
+            callback: \Octis\Webhookreceiver\Plugin\Action\GitPull::execute
             arguments: { branch: master, dir: '/etc/hosts' }
           -
-            callback: \Webham\Devops\WebhookReceiverWorker\Plugin\PullPlugin::execute
+            trigger_branch: refs/heads/master
+            callback: \Octis\Webhookreceiver\Plugin\GitPullPlugin::execute
             arguments: { branch: master, dir: '/etc/hosts' }
 ```
-3. Use this file in the buildFromYml() method.
+3. Use this file in the when instantiating the class.
 
 
 4. For local test:

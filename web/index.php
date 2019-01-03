@@ -17,5 +17,13 @@ error_reporting(E_ALL);
 
 // Creating the WebhookReceiverWorker point.
 $webhookReceiver = new WebhookReceiverWorker('../example_repos_settings.yml');
-//$webhookReceiver->setLogger($logger);
+
+// Start logging bit.
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+$logger = new Logger('name');
+$logger->pushHandler(new StreamHandler('../logs/webhook.log'));
+$webhookReceiver->setLogger($logger);
+// End logging bit.
+
 $webhookReceiver->createApiPoint();
