@@ -1,6 +1,6 @@
 repos:
     -
-      git_server_type: gitlab
+      git_server_adapter: \Octis\Webhookreceiver\Plugin\GitServer\GitLabServerAdapter
       git_url: git@gitlab.com:nikolay.r.borisov/webham.git
       secret_token: ''
       actions:
